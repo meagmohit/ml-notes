@@ -119,6 +119,21 @@ layout: table_wrappers
       {% if site.aux_links %}
         <nav aria-label="Auxiliary" class="aux-nav">
           <ul class="aux-nav-list">
+            <button class="btn js-toggle-dark-mode">Preview dark color scheme</button>
+
+            <script>
+            const toggleDarkMode = document.querySelector('.js-toggle-dark-mode');
+
+            jtd.addEvent(toggleDarkMode, 'click', function(){
+              if (jtd.getTheme() === 'dark') {
+                jtd.setTheme('light');
+                toggleDarkMode.textContent = 'Preview dark color scheme';
+              } else {
+                jtd.setTheme('dark');
+                toggleDarkMode.textContent = 'Return to the light side';
+              }
+            });
+            </script>
             {% for link in site.aux_links %}
               <li class="aux-nav-list-item">
                 <a href="{{ link.last }}" class="site-button"
