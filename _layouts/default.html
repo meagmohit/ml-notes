@@ -133,20 +133,25 @@ layout: table_wrappers
           </ul>
         </nav>
       {% endif %}
-      <button class="btn js-toggle-dark-mode">Preview dark color scheme</button>
-      <script>
-      const toggleDarkMode = document.querySelector('.js-toggle-dark-mode');
+      <nav aria-label="Auxiliary" class="aux-nav">
+          <ul class="aux-nav-list">
+              <li class="aux-nav-list-item js-toggle-dark-mode">
+                <script>
+                  const toggleDarkMode = document.querySelector('.js-toggle-dark-mode');
+                  jtd.addEvent(toggleDarkMode, 'click', function(){
+                    if (jtd.getTheme() === 'dark') {
+                      jtd.setTheme('light');
+                      toggleDarkMode.textContent = 'Preview dark color scheme';
+                    } else {
+                      jtd.setTheme('dark');
+                      toggleDarkMode.textContent = 'Return to the light side';
+                    }
+                  });
+               </script>
+              </li>
+          </ul>
+      </nav>
 
-      jtd.addEvent(toggleDarkMode, 'click', function(){
-        if (jtd.getTheme() === 'dark') {
-          jtd.setTheme('light');
-          toggleDarkMode.textContent = 'Preview dark color scheme';
-        } else {
-          jtd.setTheme('dark');
-          toggleDarkMode.textContent = 'Return to the light side';
-        }
-      });
-      </script>
     </div>
     <div id="main-content-wrap" class="main-content-wrap">
       {% unless page.url == "/" %}
