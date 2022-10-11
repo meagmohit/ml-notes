@@ -135,7 +135,8 @@ layout: table_wrappers
       {% endif %}
       <nav aria-label="Auxiliary" class="aux-nav">
           <ul class="aux-nav-list">
-              <li class="aux-nav-list-item js-toggle-dark-mode">
+              <li class="aux-nav-list-item">
+                <button class="js-toggle-dark-mode">Switch to Dark</button>
                 <script>
                   const toggleDarkMode = document.querySelector('.js-toggle-dark-mode');
                   jtd.addEvent(toggleDarkMode, 'click', function(){
@@ -150,7 +151,8 @@ layout: table_wrappers
                </script>
               </li>
           </ul>
-      </nav>
+        </nav>
+      
 
     </div>
     <div id="main-content-wrap" class="main-content-wrap">
